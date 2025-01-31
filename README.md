@@ -11,6 +11,7 @@
 '<leader>n'  -- show file tree
 '<leader>vs' -- vertical split
 '<leader>hs' -- horizontal split
+'gd'         -- get documentation
 ```
 
 ## Plugins
