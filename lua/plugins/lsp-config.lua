@@ -9,7 +9,15 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "tsserver", "csharp_ls", "cssls", "eslint", "html", "omnisharp" }
+        ensure_installed = { 
+            "lua_ls", 
+            "ts_ls", 
+            "csharp_ls", 
+            "cssls", 
+            --"eslint", 
+            "html", 
+            "omnisharp",
+        }
       })
     end
   },
@@ -18,10 +26,10 @@ return {
     config = function()
       local lspconfig = require("lspconfig")
       lspconfig.lua_ls.setup({})
-      lspconfig.tsserver.setup({})
+      lspconfig.ts_ls.setup({})
       lspconfig.csharp_ls.setup({})
       lspconfig.cssls.setup({})
-      lspconfig.eslint.setup({})
+      --lspconfig.eslint.setup({})
       lspconfig.html.setup({})
       lspconfig.omnisharp.setup({})
 

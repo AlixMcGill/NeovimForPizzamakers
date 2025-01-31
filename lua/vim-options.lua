@@ -18,3 +18,5 @@ vim.keymap.set('n', '<leader>t', ':ToggleTerm size=10 direction=horizontal<cr>')
 vim.keymap.set('n', '<leader>vs', ':vsplit<cr>')
 
 vim.keymap.set('n', '<leader>hs', ':split<cr>')
+
+vim.keymap.set('n', '<leader>lt', function() require('live-server-nvim').toggle() end)
