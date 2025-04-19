@@ -18,8 +18,8 @@ vim.opt.rtp:prepend(lazypath)
 require("vim-options")
 require("lazy").setup({
  spec = {
-    { import = "plugins" }  
-  }  
+    { import = "plugins" }
+  }
 })
 
 function SetBack(color)
@@ -29,7 +29,7 @@ function SetBack(color)
   vim.api.nvim_set_hl(0, "Normal", {bg = "none"})
   vim.api.nvim_set_hl(0, "NormalFloat", {bg = "none"})
 
-  
+
   vim.api.nvim_set_hl(0, 'lineNrAbove', {fg="#7c7f93", bold=true})
   vim.api.nvim_set_hl(0, 'lineNr', {fg="#dc8a78"})
   vim.api.nvim_set_hl(0, 'lineNrBelow', {fg="#7c7f93"})
