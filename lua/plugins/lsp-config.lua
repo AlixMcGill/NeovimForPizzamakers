@@ -26,15 +26,17 @@ return {
     "neovim/nvim-lspconfig",
     config = function()
       local lspconfig = require("lspconfig")
-      lspconfig.lua_ls.setup({})
-      lspconfig.ts_ls.setup({})
-      lspconfig.csharp_ls.setup({})
-      lspconfig.cssls.setup({})
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      lspconfig.lua_ls.setup({capabilities = capabilities})
+      lspconfig.ts_ls.setup({capabilities = capabilities})
+      lspconfig.csharp_ls.setup({capabilities = capabilities})
+      lspconfig.cssls.setup({ capabilities = capabilities})
       --lspconfig.eslint.setup({})
-      lspconfig.html.setup({})
-      lspconfig.omnisharp.setup({})
-      lspconfig.harper_ls.setup({})
+      lspconfig.html.setup({capabilities = capabilities})
+      lspconfig.omnisharp.setup({capabilities = capabilities})
+      lspconfig.harper_ls.setup({capabilities = capabilities})
       lspconfig.clangd.setup({
+            capabilities = capabilities,
           cmd = { "clangd" },
           filetypes = {"c", "cpp", "objc", "objcpp"},
       })
