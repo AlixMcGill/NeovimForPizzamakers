@@ -15,7 +15,8 @@ return {
             "markdown",
             "typescript",
             "cpp",
-            "c"
+            "c",
+            "go"
           },
           auto_install = true,
           highlight = {
