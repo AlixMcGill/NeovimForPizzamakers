@@ -9,6 +9,10 @@ return {
 			sources = {
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.formatting.prettier,
+                null_ls.builtins.formatting.phpcbf.with({
+                    command = "phpcbf",
+                    args = {"--standard-PSR12", "-"}
+                })
         --require("none-ls.diagnostics.cpplint"),
         --require("none-ls.diagnostics.eslint"),
 			},
