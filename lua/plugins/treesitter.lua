@@ -18,7 +18,11 @@ return {
             "c",
             "go",
             "php",
-            "phpcs"
+            "phpcs",
+            "glsl",
+            "clangd",
+            "gdscript",
+            "godot_resource"
           },
           auto_install = true,
           highlight = {

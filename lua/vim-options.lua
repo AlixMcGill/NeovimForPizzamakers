@@ -12,6 +12,13 @@ vim.g.mapleader = " "
 vim.wo.number = true
 vim.wo.relativenumber = true
 
+-- Removes auto comment on new line creation
+vim.api.nvim_create_autocmd({"bufEnter", "bufWinEnter", "FileType"}, {
+    callback = function()
+        vim.opt.formatoptions:remove({"c", "r", "o"})
+    end,
+})
+
 vim.keymap.set('n', 'C-l', ':TSDisable lua')
 
 vim.keymap.set('n', '<leader>b', ':Ex<cr>')

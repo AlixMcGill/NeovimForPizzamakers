@@ -12,14 +12,14 @@ return {
         ensure_installed = {
             "lua_ls",
             "ts_ls",
-            --"csharp_ls",
             "cssls",
             "eslint",
             "html",
             "omnisharp",
             "clangd",
             "gopls",
-            "intelephense"
+            "intelephense",
+            "glsl_analyzer",
         }
       })
     end
@@ -42,10 +42,16 @@ return {
         vim.lsp.config("cssls", { capabilities = capabilities })
         vim.lsp.config("eslint", { capabilities = capabilities })
         vim.lsp.config("html", { capabilities = capabilities })
-        vim.lsp.config("omnisharp", { capabilities = capabilities })
+        vim.lsp.config("omnisharp", {
+            capabilities = capabilities,
+            root_dir = util.root_pattern("*.sln", "*.csproj")
+        })
+        vim.lsp.config("csharp_ls", {
+            autostart = false
+        })
         vim.lsp.config("clangd", {
           capabilities = capabilities,
-          cmd = { "clangd" },
+          cmd = { "clangd", "--background-index" },
           filetypes = { "c", "cpp", "objc", "objcpp" },
         })
         vim.lsp.config("intelephense", {
@@ -63,6 +69,18 @@ return {
           filetypes = { "go", "gomod", "gowork", "gotmpl" },
           root_dir = util.root_pattern("go.work", "go.mod", ".git"),
         })
+        vim.lsp.config("glsl_analyzer", {
+            capabilities = capabilities,
+            filetypes = {"glsl", "vert", "frag", "geom", "comp"},
+        })
+        vim.lsp.config("gdscript", {
+            capabilities = capabilities,
+            cmd = {"nc", "127.0.0.1", "6005"},
+            root_dir = require('lspconfig').util.root_pattern("project.godot", ".git"),
+        })
+        vim.keymap.set('n', '<leader>sg', function()
+            vim.fn.serverstart '127.0.0.1:6004'
+        end, {noremap = true})
       end,
-    }
+    },
 }
