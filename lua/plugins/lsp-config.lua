@@ -73,14 +73,10 @@ return {
             capabilities = capabilities,
             filetypes = {"glsl", "vert", "frag", "geom", "comp"},
         })
-        vim.lsp.config("gdscript", {
+        require("lspconfig").gdscript.setup({
             capabilities = capabilities,
-            cmd = {"nc", "127.0.0.1", "6005"},
-            root_dir = require('lspconfig').util.root_pattern("project.godot", ".git"),
+            root_dir = util.root_pattern("project.godot", ".git"),
         })
-        vim.keymap.set('n', '<leader>sg', function()
-            vim.fn.serverstart '127.0.0.1:6004'
-        end, {noremap = true})
       end,
     },
 }
